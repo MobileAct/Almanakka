@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Almanakka</string>
+
+    <string name="sunday_label">S</string>
+    <string name="monday_label">M</string>
+    <string name="tuesday_label">T</string>
+    <string name="wednesday_label">W</string>
+    <string name="thursday_label">T</string>
+    <string name="friday_label">F</string>
+    <string name="saturday_label">S</string>
+
+    <string name="january_label">January %1$d</string>
+    <string name="february_label">February %1$d</string>
+    <string name="march_label">March %1$d</string>
+    <string name="april_label">April %1$d</string>
+    <string name="may_label">May %1$d</string>
+    <string name="june_label">June %1$d</string>
+    <string name="july_label">July %1$d</string>
+    <string name="august_label">August %1$d</string>
+    <string name="september_label">September %1$d</string>
+    <string name="october_label">October %1$d</string>
+    <string name="november_label">November %1$d</string>
+    <string name="december_label">December %1$d</string>
+</resources>

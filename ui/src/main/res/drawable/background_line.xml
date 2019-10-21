@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!-- normal -->
+    <item android:state_pressed="true" app:state_normal="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="32dp" />
+            <solid android:color="?colorPrimaryDark" />
+        </shape>
+    </item>
+    <item android:state_pressed="false" app:state_normal="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="32dp" />
+            <solid android:color="?colorPrimary" />
+        </shape>
+    </item>
+
+    <!-- only corner left -->
+    <item android:state_pressed="true" app:state_only_corner_left="true">
+        <shape android:shape="rectangle">
+            <corners android:topLeftRadius="32dp" android:bottomLeftRadius="32dp" />
+            <solid android:color="?colorPrimaryDark" />
+        </shape>
+    </item>
+    <item android:state_pressed="false" app:state_only_corner_left="true">
+        <shape android:shape="rectangle">
+            <corners android:topLeftRadius="32dp" android:bottomLeftRadius="32dp" />
+            <solid android:color="?colorPrimary" />
+        </shape>
+    </item>
+
+    <!-- only corner right -->
+    <item android:state_pressed="true" app:state_only_corner_right="true">
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="32dp" android:bottomRightRadius="32dp" />
+            <solid android:color="?colorPrimaryDark" />
+        </shape>
+    </item>
+    <item android:state_pressed="false" app:state_only_corner_right="true">
+        <shape android:shape="rectangle">
+            <corners android:topRightRadius="32dp" android:bottomRightRadius="32dp" />
+            <solid android:color="?colorPrimary" />
+        </shape>
+    </item>
+
+    <!-- no corner -->
+    <item android:state_pressed="true" app:state_no_corner="true">
+        <shape android:shape="rectangle">
+            <solid android:color="?colorPrimaryDark" />
+        </shape>
+    </item>
+    <item android:state_pressed="false" app:state_no_corner="true">
+        <shape android:shape="rectangle">
+            <solid android:color="?colorPrimary" />
+        </shape>
+    </item>
+</selector>

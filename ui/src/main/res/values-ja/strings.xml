@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Almanakka</string>
+
+    <string name="sunday_label">日</string>
+    <string name="monday_label">月</string>
+    <string name="tuesday_label">火</string>
+    <string name="wednesday_label">水</string>
+    <string name="thursday_label">木</string>
+    <string name="friday_label">金</string>
+    <string name="saturday_label">土</string>
+
+    <string name="january_label">%1$d年 %2$d月</string>
+    <string name="february_label">%1$d年 %2$d月</string>
+    <string name="march_label">%1$d年 %2$d月</string>
+    <string name="april_label">%1$d年 %2$d月</string>
+    <string name="may_label">%1$d年 %2$d月</string>
+    <string name="june_label">%1$d年 %2$d月</string>
+    <string name="july_label">%1$d年 %2$d月</string>
+    <string name="august_label">%1$d年 %2$d月</string>
+    <string name="september_label">%1$d年 %2$d月</string>
+    <string name="october_label">%1$d年 %2$d月</string>
+    <string name="november_label">%1$d年 %2$d月</string>
+    <string name="december_label">%1$d年 %2$d月</string>
+</resources>

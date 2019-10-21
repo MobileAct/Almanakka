@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CalendarView">
+        <!-- Day Style -->
+        <attr name="dayPadding" format="dimension" />
+        <attr name="dayMargin" format="dimension" />
+
+        <attr name="weekdayTextAppearance" format="reference" />
+        <attr name="weekdayDisabledTextAppearance" format="reference" />
+        <attr name="weekdaySelectedTextAppearance" format="reference" />
+        <attr name="weekdayOfDifferentMonthTextAppearance" format="reference" />
+        <attr name="saturdayTextAppearance" format="reference" />
+        <attr name="saturdayDisabledTextAppearance" format="reference" />
+        <attr name="saturdaySelectedTextAppearance" format="reference" />
+        <attr name="saturdayOfDifferentMonthTextAppearance" format="reference" />
+        <attr name="sundayTextAppearance" format="reference" />
+        <attr name="sundayDisabledTextAppearance" format="reference" />
+        <attr name="sundaySelectedTextAppearance" format="reference" />
+        <attr name="sundayOfDifferentMonthTextAppearance" format="reference" />
+
+        <!-- Day Label Style -->
+        <attr name="dayLabelPadding" format="dimension" />
+        <attr name="dayLabelMargin" format="dimension" />
+
+        <attr name="weekdayLabelTextAppearance" format="reference" />
+        <attr name="saturdayLabelTextAppearance" format="reference" />
+        <attr name="sundayLabelTextAppearance" format="reference" />
+
+        <attr name="dayOfWeekLabels" format="reference" />
+
+        <!-- Month Label Style -->
+        <attr name="monthLabelTextAppearance" format="reference" />
+        <attr name="monthLabelPadding" format="dimension" />
+        <attr name="monthLabelMargin" format="dimension" />
+
+        <attr name="monthLabels" format="reference" />
+
+        <!-- Month Style -->
+        <attr name="monthPaddingTop" format="dimension" />
+        <attr name="monthPaddingBottom" format="dimension" />
+        <attr name="monthPaddingSide" format="dimension" />
+
+        <!-- Selected Style -->
+        <attr name="selectedElevation" format="dimension" />
+        <attr name="selectedBackground" format="reference" />
+        <attr name="selectedSlider" format="reference" />
+        <attr name="visibleSelectedSlider" format="boolean" />
+
+        <!-- Sticky Style -->
+        <attr name="isStickyHeader" format="boolean" />
+        <attr name="stickyHeaderBackgroundColor" format="color" />
+
+        <!-- Calendar Provider -->
+        <attr name="minDay" format="string" />
+        <attr name="maxDay" format="string" />
+        <attr name="isShowDaysOfDifferentMonth" format="boolean" />
+        <attr name="dayOfWeekOrderStart">
+            <enum name="sunday" value="1" />
+            <enum name="monday" value="2" />
+            <enum name="tuesday" value="3" />
+            <enum name="wednesday" value="4" />
+            <enum name="thursday" value="5" />
+            <enum name="friday" value="6" />
+            <enum name="saturday" value="7" />
+        </attr>
+
+        <!-- Section Provider -->
+        <attr name="selectionProvider">
+            <enum name="normal" value="0" />
+            <enum name="tapRange" value="1" />
+            <enum name="slideRange" value="2" />
+        </attr>
+
+        <!-- Mode -->
+        <attr name="mode">
+            <enum name="scroll" value="0" />
+            <enum name="pager" value="1" />
+        </attr>
+
+        <!-- State -->
+        <attr name="state_normal" format="boolean" />
+        <attr name="state_only_corner_left" format="boolean" />
+        <attr name="state_only_corner_right" format="boolean" />
+        <attr name="state_no_corner" format="boolean" />
+
+    </declare-styleable>
+</resources>

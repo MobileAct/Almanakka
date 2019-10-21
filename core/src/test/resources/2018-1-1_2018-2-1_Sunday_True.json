@@ -1,0 +1,1560 @@
+[
+  {
+    "Year": 2018,
+    "MonthOfYear": 1,
+    "Weeks": [
+      {
+        "Days": [
+          {
+            "PreviousDay": null,
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 1,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 2,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 1,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 2,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 3,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 2,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 3,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 4,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 3,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 4,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 5,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 4,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 5,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 6,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 5,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 6,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 7,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 6,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 7,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 8,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 7,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 8,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 9,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 8,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 9,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 10,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 9,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 10,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 11,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 10,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 11,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 12,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 11,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 12,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 13,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 12,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 13,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 14,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 13,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 14,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 15,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 14,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 15,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 16,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 15,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 16,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 17,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 16,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 17,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 18,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 17,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 18,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 19,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 18,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 19,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 20,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 19,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 20,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 21,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 20,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 21,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 22,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 21,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 22,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 23,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 22,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 23,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 24,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 23,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 24,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 25,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 24,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 25,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 26,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 25,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 26,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 27,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 26,
+              "DayOfWeek": 5,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 27,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 28,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 27,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 28,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 29,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 28,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 29,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 30,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 29,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 30,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 31,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 30,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 31,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 1,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 31,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 1,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 2,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 1,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 2,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 3,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 2,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 3,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 4,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Year": 2018,
+    "MonthOfYear": 2,
+    "Weeks": [
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 27,
+              "DayOfWeek": 6,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 28,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 29,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 28,
+              "DayOfWeek": 0,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 29,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 30,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 29,
+              "DayOfWeek": 1,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 30,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 31,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 30,
+              "DayOfWeek": 2,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 31,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 1,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 1,
+              "Day": 31,
+              "DayOfWeek": 3,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 1,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 2,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 1,
+              "DayOfWeek": 4,
+              "IsDisabled": false
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 2,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 3,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 2,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 3,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 4,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 3,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 4,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 5,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 4,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 5,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 6,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 5,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 6,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 7,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 6,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 7,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 8,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 7,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 8,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 9,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 8,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 9,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 10,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 9,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 10,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 11,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 10,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 11,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 12,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 11,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 12,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 13,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 12,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 13,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 14,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 13,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 14,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 15,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 14,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 15,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 16,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 15,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 16,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 17,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 16,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 17,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 18,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 17,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 18,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 19,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 18,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 19,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 20,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 19,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 20,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 21,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 20,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 21,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 22,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 21,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 22,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 23,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 22,
+              "DayOfWeek": 4,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 23,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 24,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 23,
+              "DayOfWeek": 5,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 24,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 25,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            }
+          }
+        ]
+      },
+      {
+        "Days": [
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 24,
+              "DayOfWeek": 6,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 25,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 26,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 25,
+              "DayOfWeek": 0,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 26,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 27,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 26,
+              "DayOfWeek": 1,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 27,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "NextDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 28,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            }
+          },
+          {
+            "PreviousDay": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 27,
+              "DayOfWeek": 2,
+              "IsDisabled": true
+            },
+            "Day": {
+              "Year": 2018,
+              "Month": 2,
+              "Day": 28,
+              "DayOfWeek": 3,
+              "IsDisabled": true
+            },
+            "NextDay": null
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    testCompile "com.google.code.gson:gson:2.8.5"
+    testCompile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.3.1"
+    testCompile "org.junit.jupiter:junit-jupiter-params:5.3.1"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.3.1"
+}
+
+sourceCompatibility = "6"
+targetCompatibility = "6"
+
+repositories {
+    mavenCentral()
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "1.6"
+    }
+}

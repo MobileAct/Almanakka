@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="almanakka.app.SlideRangeSelectionActivity">
+
+    <almanakka.ui.CalendarView
+        android:id="@+id/calendar"
+        style="@style/Almanakka.Scroll.SlideRange"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maxDay="2018 5/15"
+        app:minDay="2017 2/10" />
+</FrameLayout>

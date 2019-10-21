@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="dayOfWeeks">
+        <item>@string/sunday_label</item>
+        <item>@string/monday_label</item>
+        <item>@string/tuesday_label</item>
+        <item>@string/wednesday_label</item>
+        <item>@string/thursday_label</item>
+        <item>@string/friday_label</item>
+        <item>@string/saturday_label</item>
+    </array>
+
+    <array name="months">
+        <item>@string/january_label</item>
+        <item>@string/february_label</item>
+        <item>@string/march_label</item>
+        <item>@string/april_label</item>
+        <item>@string/may_label</item>
+        <item>@string/june_label</item>
+        <item>@string/july_label</item>
+        <item>@string/august_label</item>
+        <item>@string/september_label</item>
+        <item>@string/october_label</item>
+        <item>@string/november_label</item>
+        <item>@string/december_label</item>
+    </array>
+</resources>

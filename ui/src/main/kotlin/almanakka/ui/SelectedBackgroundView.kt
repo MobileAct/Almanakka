@@ -1,8 +1,10 @@
 package almanakka.ui
 
+import almanakka.core.IWeek
 import almanakka.core.behaviors.IBehaviorContainer
 import almanakka.ui.configurations.ViewConfig
 import almanakka.ui.extensions.convertToPixel
+import almanakka.ui.internal.ViewMeasure
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
@@ -14,8 +16,7 @@ import android.view.View.MeasureSpec.EXACTLY as exactlyMeasureSpec
 internal class SelectedBackgroundView(
         context: Context,
         private val selectionProvider: ISelectionProvider,
-        private val viewConfig: ViewConfig,
-        private val days: Array<IDayView>) : ViewGroup(context) {
+        private val viewConfig: ViewConfig) : ViewGroup(context) {
 
     companion object {
 
@@ -33,6 +34,7 @@ internal class SelectedBackgroundView(
     }
 
     private var behaviorContainer: IBehaviorContainer? = null
+    private var week: IWeek? = null
 
     private var backgroundState = stateNormal
     private var backgroundWidth = 0
@@ -44,8 +46,6 @@ internal class SelectedBackgroundView(
     private val rightSlider: View
 
     init {
-        check(days.isNotEmpty()) { "days must not empty" }
-
         background = context.getDrawable(viewConfig.selectedBackgroundResId)
 
         sliderSize = context.convertToPixel(sliderSizeDp).toInt()
@@ -69,10 +69,10 @@ internal class SelectedBackgroundView(
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        calculateBackgroundSpec(days)
-
         val width = MeasureSpec.getSize(widthMeasureSpec)
         val height = MeasureSpec.getSize(heightMeasureSpec)
+
+        calculateBackgroundSpec(width, height)
 
         val contentWidth = Math.max(Math.min(width, backgroundWidth), 0)
 
@@ -101,58 +101,59 @@ internal class SelectedBackgroundView(
         )
     }
 
-    private fun calculateBackgroundSpec(days: Array<IDayView>) {
+    private fun calculateBackgroundSpec(width: Int, height: Int) {
         var offsetLeft = 0
-        var width = 0
+        var backgroundWidth = 0
 
-        for (day in days) {
-            val d = day.getDay()
-            if (d == null || behaviorContainer?.isSelected(d) != true) {
-                offsetLeft += day.getMeasuredWidth()
+        val dayWidths = ViewMeasure.measureDayWidth(viewConfig, width)
+
+        for ((i, day) in week?.asSequence()?.withIndex() ?: emptySequence()) {
+            if (day == null || behaviorContainer?.isSelected(day) != true) {
+                offsetLeft += dayWidths[i] // array may be equals count
             } else {
                 break
             }
         }
 
-        for (day in days) {
-            val d = day.getDay()
-            if (d != null && behaviorContainer?.isSelected(d) == true) {
-                width += day.getMeasuredWidth()
+        for ((i, day) in week?.asSequence()?.withIndex() ?: emptySequence()) {
+            if (day != null && behaviorContainer?.isSelected(day) == true) {
+                backgroundWidth += dayWidths[i] // array may be equals count
             }
         }
 
-        if (width == 0) {
+        if (backgroundWidth == 0) {
             marginLeft = 0
-            backgroundWidth = 0
+            this.backgroundWidth = 0
             return
         }
 
         // if 1 day selected, will be DayView.width equal to DayView.height
-        val dayTextOvalMargin = (days.first().getMeasuredWidth() - days.first().getMeasuredHeight()) / 2
+        val dayTextOvalMargin = (dayWidths.first() - height) / 2
 
-        if (isLeftSelectingEdge(days)) {
+        if (isLeftSelectingEdge()) {
             offsetLeft += viewConfig.monthPaddingSide
             offsetLeft += dayTextOvalMargin
-            width -= dayTextOvalMargin
+            backgroundWidth -= dayTextOvalMargin
         } else {
-            width += viewConfig.monthPaddingSide
+            backgroundWidth += viewConfig.monthPaddingSide
         }
 
-        if (isRightSelectingEdge(days)) {
-            width -= dayTextOvalMargin
+        if (isRightSelectingEdge()) {
+            backgroundWidth -= dayTextOvalMargin
         } else {
-            width += viewConfig.monthPaddingSide
+            backgroundWidth += viewConfig.monthPaddingSide
         }
 
         marginLeft = offsetLeft
-        backgroundWidth = width
+        this.backgroundWidth = backgroundWidth
     }
 
-    fun updateState(behaviorContainer: IBehaviorContainer) {
+    fun updateState(behaviorContainer: IBehaviorContainer, week: IWeek?) {
         this.behaviorContainer = behaviorContainer
-        calculateBackgroundState(behaviorContainer, days)
+        this.week = week
+        calculateBackgroundState(behaviorContainer)
 
-        setSliderVisibility(days)
+        setSliderVisibility()
         setTranslation()
         setPressed()
 
@@ -160,23 +161,19 @@ internal class SelectedBackgroundView(
         invalidate()
     }
 
-    private fun isLeftSelectingEdge(days: Array<IDayView>): Boolean {
-        val firstDayView = days.first { it.getDay() != null }
-        val firstDay = checkNotNull(firstDayView.getDay())
-        val previousDay = firstDay.previousDay ?: return false
+    private fun isLeftSelectingEdge(): Boolean {
+        val previousDay = week?.firstDay?.previousDay ?: return false
         return behaviorContainer?.isSelected(previousDay) != true
     }
 
-    private fun isRightSelectingEdge(days: Array<IDayView>): Boolean {
-        val lastDayView = days.last { it.getDay() != null }
-        val lastDay = checkNotNull(lastDayView.getDay())
-        val nextDay = lastDay.nextDay ?: return false
+    private fun isRightSelectingEdge(): Boolean {
+        val nextDay = week?.lastDay?.nextDay ?: return false
         return behaviorContainer?.isSelected(nextDay) != true
     }
 
-    private fun calculateBackgroundState(behaviorContainer: IBehaviorContainer, days: Array<IDayView>) {
-        val previousDay = days.first().getDay()?.previousDay
-        val nextDay = days.last().getDay()?.nextDay
+    private fun calculateBackgroundState(behaviorContainer: IBehaviorContainer) {
+        val previousDay = week?.firstDay?.previousDay
+        val nextDay = week?.lastDay?.nextDay
 
         if (previousDay != null && behaviorContainer.isSelected(previousDay) &&
                 nextDay != null && behaviorContainer.isSelected(nextDay)) {
@@ -198,9 +195,9 @@ internal class SelectedBackgroundView(
             visibility = if (value) visible else invisible
         }
 
-    private fun setSliderVisibility(days: Array<IDayView>) {
-        leftSlider.isVisible = isLeftSelectingEdge(days) && viewConfig.isVisibleSelectedSlider
-        rightSlider.isVisible = isRightSelectingEdge(days) && viewConfig.isVisibleSelectedSlider
+    private fun setSliderVisibility() {
+        leftSlider.isVisible = isLeftSelectingEdge() && viewConfig.isVisibleSelectedSlider
+        rightSlider.isVisible = isRightSelectingEdge() && viewConfig.isVisibleSelectedSlider
     }
 
     private fun setTranslation() {

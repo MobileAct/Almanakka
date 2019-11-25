@@ -4,6 +4,7 @@ import almanakka.core.IMonth
 import almanakka.core.IWeek
 import almanakka.core.behaviors.IBehaviorContainer
 import almanakka.ui.configurations.Config
+import almanakka.ui.internal.ViewMeasure
 import android.annotation.SuppressLint
 import android.content.Context
 import android.view.View
@@ -31,7 +32,7 @@ internal class WeekView(
             DayView(context, selectionProvider, config.dayConfig)
         }
 
-        selectedBackground = SelectedBackgroundView(context, selectionProvider, config.viewConfig, days).apply {
+        selectedBackground = SelectedBackgroundView(context, selectionProvider, config.viewConfig).apply {
             this@WeekView.addView(this)
         }
 
@@ -49,12 +50,9 @@ internal class WeekView(
             return
         }
 
-        val contentWidth = width - config.viewConfig.monthPaddingSide * 2
-        val widthPerElement = contentWidth / daySize
-        val remOfWidthPerElement = contentWidth % daySize
-
+        val elementWidths = ViewMeasure.measureDayWidth(config.viewConfig, width)
         for (i in 0 until daySize) {
-            val elementWidth = widthPerElement + if (i < remOfWidthPerElement) 1 else 0
+            val elementWidth = elementWidths[i] // array may be equals count
             days[i].measure(
                     MeasureSpec.makeMeasureSpec(elementWidth, exactlyMeasureSpec),
                     MeasureSpec.makeMeasureSpec(height, atMostMeasureSpec)
@@ -119,7 +117,7 @@ internal class WeekView(
             days[i].setDay(behaviorContainer, month, day)
         }
 
-        selectedBackground.updateState(behaviorContainer)
+        selectedBackground.updateState(behaviorContainer, week)
     }
 
     fun getFirstDayView(): View? {

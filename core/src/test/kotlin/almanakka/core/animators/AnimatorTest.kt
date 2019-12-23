@@ -27,11 +27,11 @@ class AnimatorTest {
             .toList()
 
     // return selected 1/5 animator
-    private fun create(clock: IClock): IAnimator {
-        return Animator(clock, 100, calendar[0].firstWeek.lastDay)
+    private fun create(clock: IClock, durationPerDayMilliSeconds: Int = 100): Animator {
+        return Animator(clock, durationPerDayMilliSeconds, calendar[0].firstWeek.lastDay)
     }
 
-    private fun test(animator: IAnimator, progress: IntArray, isAnimating: Boolean) {
+    private fun test(animator: Animator, progress: IntArray, isAnimating: Boolean) {
         assert(days.size == progress.size) { "days:${days.size}, progress:${progress.size}" }
 
         fun Progress.toPercent(): Int {
@@ -44,7 +44,7 @@ class AnimatorTest {
         }
 
         for ((percent, day) in progress.zip(days)) {
-            assert(animator.state(day).toPercent() == percent)
+            assert(animator.state(day).toPercent() == percent) { "$day expect: ${animator.state(day)} actual: $percent" }
         }
         assert(animator.isAnimating() == isAnimating)
     }
@@ -74,6 +74,30 @@ class AnimatorTest {
     }
 
     @Test
+    fun test1_long() {
+        // expand: 1/5 => 1/5 ~ 1/9
+        val clock = TestClock(0)
+        val animator = create(clock, 1000)
+
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
+
+        animator.select(days[4], days[8])
+
+        clock.time += 500
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 50, 0, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 50, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 50, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 100, 50, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 100, 75, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 100, 100, 0), false)
+    }
+
+    @Test
     fun test2() {
         // expand: 1/5 => 1/2 ~ 1/5
         val clock = TestClock(0)
@@ -92,6 +116,28 @@ class AnimatorTest {
         clock.time += 25
         test(animator, intArrayOf(0, 75, 100, 100, 100, 0, 0, 0, 0, 0), true)
         clock.time += 25
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 0, 0, 0, 0, 0), false)
+    }
+
+    @Test
+    fun test2_long() {
+        // expand: 1/5 => 1/2 ~ 1/5
+        val clock = TestClock(0)
+        val animator = create(clock, 1000)
+
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
+
+        animator.select(days[1], days[4])
+
+        clock.time += 500
+        test(animator, intArrayOf(0, 0, 0, 50, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 50, 100, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 50, 100, 100, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 75, 100, 100, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 250
         test(animator, intArrayOf(0, 100, 100, 100, 100, 0, 0, 0, 0, 0), false)
     }
 
@@ -125,6 +171,36 @@ class AnimatorTest {
     }
 
     @Test
+    fun test3_long() {
+        // expand: 1/5 => 1/2 ~ 1/9
+        val clock = TestClock(0)
+        val animator = create(clock, 1000)
+
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
+
+        animator.select(days[1], days[8])
+        clock.time += 500
+        test(animator, intArrayOf(0, 0, 0, 50, 100, 50, 0, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 50, 100, 100, 100, 50, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 50, 100, 100, 100, 100, 100, 50, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 75, 100, 100, 100, 100, 100, 75, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 100, 100, 100, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 100, 100, 100, 25, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 100, 100, 100, 50, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 100, 100, 100, 75, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 100, 100, 100, 100, 0), false)
+    }
+
+
+    @Test
     fun test4() {
         // shrink: 1/5 ~ 1/9 => 1/5
         val clock = TestClock(0)
@@ -146,6 +222,31 @@ class AnimatorTest {
         clock.time += 25
         test(animator, intArrayOf(0, 0, 0, 0, 100, 25, 0, 0, 0, 0), true)
         clock.time += 25
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
+    }
+
+    @Test
+    fun test4_long() {
+        // shrink: 1/5 ~ 1/9 => 1/5
+        val clock = TestClock(0)
+        val animator = create(clock, 1000)
+        animator.select(days[4], days[8])
+        clock.time += 10000
+
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 100, 100, 0), false)
+
+        animator.select(days[4])
+        clock.time += 500
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 100, 50, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 100, 50, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 50, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 50, 0, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 25, 0, 0, 0, 0), true)
+        clock.time += 250
         test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
     }
 
@@ -174,6 +275,31 @@ class AnimatorTest {
     }
 
     @Test
+    fun test5_long() {
+        // shrink: 1/2 ~ 1/5 => 1/5
+        val clock = TestClock(0)
+        val animator = create(clock, 1000)
+        animator.select(days[1], days[4])
+        clock.time += 10000
+
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 0, 0, 0, 0, 0), false)
+
+        animator.select(days[4])
+
+        clock.time += 500
+        test(animator, intArrayOf(0, 50, 100, 100, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 50, 100, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 50, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 25, 100, 0, 0, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
+    }
+
+
+    @Test
     fun test6() {
         // shrink: 1/2 ~ 1/9 => 1/5
         val clock = TestClock(0)
@@ -199,6 +325,35 @@ class AnimatorTest {
         clock.time += 50
         test(animator, intArrayOf(0, 0, 0, 0, 100, 25, 0, 0, 0, 0), true)
         clock.time += 25
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
+    }
+
+    @Test
+    fun test6_long() {
+        // shrink: 1/2 ~ 1/9 => 1/5
+        val clock = TestClock(0)
+        val animator = create(clock, 1000)
+        animator.select(days[1], days[8])
+        clock.time += 10000
+
+        test(animator, intArrayOf(0, 100, 100, 100, 100, 100, 100, 100, 100, 0), false)
+
+        animator.select(days[4])
+        clock.time += 500
+        test(animator, intArrayOf(0, 50, 100, 100, 100, 100, 100, 100, 50, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 50, 100, 100, 100, 100, 50, 0, 0), true)
+        clock.time += 1000
+        test(animator, intArrayOf(0, 0, 0, 50, 100, 100, 50, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 25, 100, 100, 25, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 100, 0, 0, 0, 0), true)
+        clock.time += 250
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 75, 0, 0, 0, 0), true)
+        clock.time += 500
+        test(animator, intArrayOf(0, 0, 0, 0, 100, 25, 0, 0, 0, 0), true)
+        clock.time += 250
         test(animator, intArrayOf(0, 0, 0, 0, 100, 0, 0, 0, 0, 0), false)
     }
 }

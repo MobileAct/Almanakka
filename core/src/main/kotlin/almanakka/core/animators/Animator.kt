@@ -121,7 +121,7 @@ class Animator(
                         .takeWhile { selectedLeft <= it }
                         .toList()
                 val day = days.last()
-                maybeWalkedDaysPercent -= (days.size - 1) * durationPerDayMilliSeconds
+                maybeWalkedDaysPercent -= (days.size - 1) * 100
 
                 val newProgress = newProgress(maybeWalkedDaysPercent.toInt())
                 dayStateLeft = DayState(day, newProgress)
@@ -136,7 +136,7 @@ class Animator(
                         .takeWhile { it <= selectedLeft }
                         .toList()
                 val day = days.last()
-                maybeWalkedDaysPercent -= (days.size - 1) * durationPerDayMilliSeconds
+                maybeWalkedDaysPercent -= (days.size - 1) * 100
 
                 val newProgress = newProgress(100 - maybeWalkedDaysPercent.toInt())
                 dayStateLeft = DayState(day, newProgress)
@@ -177,8 +177,7 @@ class Animator(
                         .takeWhile { it <= selectedRight }
                         .toList()
                 val day = days.last()
-                maybeWalkedDaysPercent -= (days.size - 1) * durationPerDayMilliSeconds
-
+                maybeWalkedDaysPercent -= (days.size - 1) * 100
                 val newProgress = newProgress(maybeWalkedDaysPercent.toInt())
                 dayStateRight = DayState(day, newProgress)
             }
@@ -192,7 +191,7 @@ class Animator(
                         .takeWhile { selectedRight <= it }
                         .toList()
                 val day = days.last()
-                maybeWalkedDaysPercent -= (days.size - 1) * durationPerDayMilliSeconds
+                maybeWalkedDaysPercent -= (days.size - 1) * 100
 
                 val newProgress = newProgress(100 - maybeWalkedDaysPercent.toInt())
                 dayStateRight = DayState(day, newProgress)

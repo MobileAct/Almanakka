@@ -14,5 +14,7 @@ interface IAnimator {
 
     fun state(day: IDay): Progress
 
+    fun updateMeasureTime()
+
     fun isAnimating(): Boolean
 }

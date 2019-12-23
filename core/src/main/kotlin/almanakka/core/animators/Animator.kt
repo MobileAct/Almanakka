@@ -20,11 +20,15 @@ class Animator(
     private var measurementTimeMilliSeconds = clock.currentTimeMilliSeconds()
     private var selectedLeft: IDay = selectedDay
     private var selectedRight: IDay = selectedDay
-    private var dayStateLeft: DayState = DayState(selectedDay, Progress.Complete)
-    private var dayStateRight: DayState = DayState(selectedDay, Progress.Complete)
+    private var dayStateLeft: DayState = DayState(selectedDay, Progress.RightToLeft(100))
+    private var dayStateRight: DayState = DayState(selectedDay, Progress.LeftToRight(100))
 
     constructor(durationPerDayMilliSeconds: Int, selectedDay: IDay)
             : this(Clock, durationPerDayMilliSeconds, selectedDay)
+
+    override fun updateMeasureTime() {
+        measurementTimeMilliSeconds = clock.currentTimeMilliSeconds()
+    }
 
     override fun select(day: IDay) {
         this.selectedLeft = day
@@ -34,8 +38,8 @@ class Animator(
     override fun selectWithNoAnimation(day: IDay) {
         select(day)
 
-        dayStateLeft = DayState(day, Progress.Complete)
-        dayStateRight = DayState(day, Progress.Complete)
+        dayStateLeft = DayState(day, Progress.RightToLeft(100))
+        dayStateRight = DayState(day, Progress.LeftToRight(100))
     }
 
     override fun select(startDay: IDay, endDay: IDay) {
@@ -49,8 +53,8 @@ class Animator(
     override fun selectWithNoAnimation(startDay: IDay, endDay: IDay) {
         select(startDay, endDay)
 
-        dayStateLeft = DayState(startDay, Progress.Complete)
-        dayStateRight = DayState(startDay, Progress.Complete)
+        dayStateLeft = DayState(startDay, Progress.RightToLeft(100))
+        dayStateRight = DayState(startDay, Progress.LeftToRight(100))
     }
 
     override fun state(day: IDay): Progress {
@@ -99,9 +103,9 @@ class Animator(
 
         fun newProgress(percent: Int): Progress {
             return when {
-                percent <= 0 -> Progress.None
+                percent <= 0 -> Progress.RightToLeft(0)
                 percent in 1..99 -> Progress.RightToLeft(percent)
-                else -> Progress.Complete
+                else -> Progress.RightToLeft(100)
             }
         }
 
@@ -156,9 +160,9 @@ class Animator(
 
         fun newProgress(percent: Int): Progress {
             return when {
-                percent <= 0 -> Progress.None
+                percent <= 0 -> Progress.LeftToRight(0)
                 percent in 1..99 -> Progress.LeftToRight(percent)
-                else -> Progress.Complete
+                else -> Progress.LeftToRight(100)
             }
         }
 
@@ -205,8 +209,19 @@ class Animator(
         if (dayStateLeft.day != selectedLeft || dayStateRight.day != selectedRight) {
             return true
         }
+
+        val leftProgress = when (val left = dayStateLeft.progress) {
+            is Progress.Complete -> 100
+            is Progress.RightToLeft -> left.percent
+            else -> 0
+        }
+        val rightProgress = when (val right = dayStateRight.progress) {
+            is Progress.Complete -> 100
+            is Progress.LeftToRight -> right.percent
+            else -> 0
+        }
         if (dayStateLeft.day == selectedLeft && dayStateRight.day == selectedRight
-                && (dayStateLeft.progress != Progress.Complete || dayStateRight.progress != Progress.Complete)) {
+                && (leftProgress != 100 || rightProgress != 100)) {
             return true
         }
 

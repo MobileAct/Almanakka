@@ -2,21 +2,24 @@ package almanakka.ui.providers
 
 import almanakka.core.IDay
 import almanakka.core.ImmutableDay
+import almanakka.core.animators.Animator
+import almanakka.core.animators.IAnimator
 import almanakka.core.behaviors.IBehaviorContainer
 import almanakka.core.behaviors.ISelectableBehavior
-import almanakka.ui.IDayView
-import almanakka.ui.ISelectionProvider
-import almanakka.ui.MonthAdapter
-import almanakka.ui.ViewState
+import almanakka.ui.*
+import almanakka.ui.configurations.ViewConfig
 import almanakka.ui.events.EventArgs
 import almanakka.ui.events.RangeDaySelectedEventArgs
+import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
 class TapRangeSelectionProvider(
+        private val calendarView: CalendarView,
         private val recyclerView: RecyclerView,
+        private val viewConfig: ViewConfig,
         private val daySelected: (EventArgs) -> Unit) : ISelectionProvider {
 
     companion object {
@@ -34,7 +37,7 @@ class TapRangeSelectionProvider(
     private val adapter: MonthAdapter?
         get() = recyclerView.adapter as? MonthAdapter
 
-    override val viewState = ViewState()
+    var animator: IAnimator? = null
 
     private var behaviorContainer: IBehaviorContainer? = null
     private val selectableBehavior = SelectableBehavior()
@@ -60,8 +63,16 @@ class TapRangeSelectionProvider(
             selectableBehavior.select(day)
         }
 
-        recyclerView.adapter?.notifyDataSetChanged()
+        calendarView.invalidate()
         raiseSelectEvent()
+    }
+
+    override fun createBackgroundView(context: Context): BackgroundView {
+        return TapRangeBackgroundView(context, this, viewConfig)
+    }
+
+    override fun requestPostInvalidateView(): Boolean {
+        return animator?.isAnimating() == true
     }
 
     override fun onClick(v: View?) {
@@ -178,6 +189,7 @@ class TapRangeSelectionProvider(
         fun select(day: IDay) {
             val selectedMinDay = selectedMinDay
             if (selectedMinDay == null) {
+                animator = animator ?: Animator(100, day)// ToDo: from config
                 this.selectedMinDay = day
                 return
             }
@@ -188,6 +200,9 @@ class TapRangeSelectionProvider(
 
             this.selectedMinDay = min(selectedMinDay, selectingDay)
             this.selectedMaxDay = max(selectedMinDay, selectingDay)
+            animator?.updateMeasureTime()
+            animator?.select(min(selectedMinDay, selectingDay), max(selectedMinDay, selectingDay))
+            animator = animator ?: Animator(100, day) // ToDo: from config
         }
 
         private fun daySequence(start: IDay, end: IDay): Sequence<IDay> {
@@ -201,6 +216,7 @@ class TapRangeSelectionProvider(
         fun clearSelect() {
             this.selectedMinDay = null
             this.selectedMaxDay = null
+            animator = null
         }
 
         private fun min(day1: IDay, day2: IDay): IDay {

@@ -11,7 +11,7 @@ import almanakka.ui.behaviors.MonthLabelTextBehavior
 import almanakka.ui.configurations.*
 import almanakka.ui.events.EventArgs
 import almanakka.ui.events.EventHandler
-import almanakka.ui.providers.SelectionProvider
+import almanakka.ui.providers.NormalSelectionProvider
 import almanakka.ui.providers.SlideRangeSelectionProvider
 import almanakka.ui.providers.TapRangeSelectionProvider
 import android.content.Context
@@ -134,9 +134,9 @@ class CalendarView @JvmOverloads constructor(context: Context, attrs: AttributeS
             setItemViewCacheSize(4) // increase size from default in standard
 
             selectionProvider = when (this@CalendarView.selectionProviderType) {
-                tapRangeProvider -> TapRangeSelectionProvider(this, ::raiseDaySelected)
-                slideRangeProvider -> SlideRangeSelectionProvider(this, viewConfig, ::raiseDaySelected)
-                else -> SelectionProvider(this, ::raiseDaySelected)
+                tapRangeProvider -> TapRangeSelectionProvider(this@CalendarView, this, viewConfig, ::raiseDaySelected)
+                slideRangeProvider -> SlideRangeSelectionProvider(this@CalendarView, this, viewConfig, ::raiseDaySelected)
+                else -> NormalSelectionProvider(this@CalendarView, this, ::raiseDaySelected)
             }
             selectionProvider.registerBehavior(calendarCollection.behaviorContainer)
 
@@ -170,6 +170,17 @@ class CalendarView @JvmOverloads constructor(context: Context, attrs: AttributeS
             this@CalendarView.addView(this)
         }
         controller = CalendarController(recyclerView)
+    }
+
+    override fun invalidate() {
+        super.invalidate()
+
+        val layoutManager = recyclerView.layoutManager as? PreLoadLinearLayoutManager
+        layoutManager?.invalidateChildren()
+
+        if (selectionProvider.requestPostInvalidateView()) {
+            postInvalidateOnAnimation()
+        }
     }
 
     private fun raiseDaySelected(args: EventArgs) {

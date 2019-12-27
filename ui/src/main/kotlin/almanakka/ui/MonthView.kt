@@ -197,4 +197,10 @@ internal class MonthView(
 
         return nextFocusView
     }
+
+    fun invalidateBackgroundView() {
+        for (weekView in weeks) {
+            weekView.invalidateBackgroundView()
+        }
+    }
 }

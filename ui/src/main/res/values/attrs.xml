@@ -41,10 +41,8 @@
         <attr name="monthPaddingSide" format="dimension" />
 
         <!-- Selected Style -->
-        <attr name="selectedElevation" format="dimension" />
-        <attr name="selectedBackground" format="reference" />
-        <attr name="selectedSlider" format="reference" />
-        <attr name="visibleSelectedSlider" format="boolean" />
+        <attr name="selectedBackgroundLine" format="reference" />
+        <attr name="selectedBackgroundEdge" format="reference" />
 
         <!-- Sticky Style -->
         <attr name="isStickyHeader" format="boolean" />
@@ -76,12 +74,6 @@
             <enum name="scroll" value="0" />
             <enum name="pager" value="1" />
         </attr>
-
-        <!-- State -->
-        <attr name="state_normal" format="boolean" />
-        <attr name="state_only_corner_left" format="boolean" />
-        <attr name="state_only_corner_right" format="boolean" />
-        <attr name="state_no_corner" format="boolean" />
 
     </declare-styleable>
 </resources>

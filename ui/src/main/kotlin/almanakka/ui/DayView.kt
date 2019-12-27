@@ -61,12 +61,6 @@ internal class DayView(
         }
 
         behaviorContainer.setDayTextStyleAndPrecomputedTextFuture(month, day, text)
-
-        if (behaviorContainer.isSelected(day)) {
-            translationZ = selectionProvider.viewState.selectedTranslationZ
-        } else {
-            translationZ = 0F
-        }
     }
 
     override fun getDay(): IDay? {

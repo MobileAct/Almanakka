@@ -23,7 +23,7 @@ internal class WeekView(
         const val daySize = 7
     }
 
-    private val selectedBackground: SelectedBackgroundView
+    private val backgroundView: BackgroundView
     private val days: Array<IDayView>
     private var currentWeek: IWeek? = null
 
@@ -32,7 +32,7 @@ internal class WeekView(
             DayView(context, selectionProvider, config.dayConfig)
         }
 
-        selectedBackground = SelectedBackgroundView(context, selectionProvider, config.viewConfig).apply {
+        backgroundView = selectionProvider.createBackgroundView(context).apply {
             this@WeekView.addView(this)
         }
 
@@ -74,7 +74,7 @@ internal class WeekView(
             )
         }
 
-        selectedBackground.measure(
+        backgroundView.measure(
                 MeasureSpec.makeMeasureSpec(width, atMostMeasureSpec),
                 MeasureSpec.makeMeasureSpec(maxHeight, exactlyMeasureSpec)
         )
@@ -87,11 +87,11 @@ internal class WeekView(
         var left = config.viewConfig.monthPaddingSide
         val topOffset = config.dayConfig.margin
 
-        selectedBackground.layout(
-                selectedBackground.marginLeft,
+        backgroundView.layout(
+                0,
                 topOffset,
-                selectedBackground.marginLeft + selectedBackground.measuredWidth,
-                topOffset + selectedBackground.measuredHeight
+                backgroundView.measuredWidth,
+                topOffset + backgroundView.measuredHeight
         )
 
         for (day in days) {
@@ -117,7 +117,7 @@ internal class WeekView(
             days[i].setDay(behaviorContainer, month, day)
         }
 
-        selectedBackground.updateState(behaviorContainer, week)
+        backgroundView.updateState(behaviorContainer, week)
     }
 
     fun getFirstDayView(): View? {
@@ -130,5 +130,12 @@ internal class WeekView(
 
     fun hasDay(): Boolean {
         return days.any { it.getDay() != null }
+    }
+
+    fun invalidateBackgroundView() {
+        backgroundView.postInvalidateOnAnimation()
+        for (day in days) {
+            day.postInvalidateOnAnimation()
+        }
     }
 }

@@ -11,4 +11,11 @@ class PreLoadLinearLayoutManager(context: Context) : LinearLayoutManager(context
     override fun getExtraLayoutSpace(state: RecyclerView.State?): Int {
         return displayHeight
     }
+
+    fun invalidateChildren() {
+        for (i in 0 until childCount) {
+            val monthContainerView = getChildAt(i) as? IMonthContainerView
+            monthContainerView?.monthView?.invalidateBackgroundView()
+        }
+    }
 }

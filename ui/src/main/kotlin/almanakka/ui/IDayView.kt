@@ -17,4 +17,6 @@ interface IDayView {
     fun setDay(behaviorContainer: IBehaviorContainer, month: IMonth, day: IDay?)
 
     fun getDay(): IDay?
+
+    fun postInvalidateOnAnimation()
 }

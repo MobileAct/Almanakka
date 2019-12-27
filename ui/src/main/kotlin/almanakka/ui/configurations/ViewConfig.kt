@@ -25,15 +25,12 @@ class ViewConfig(context: Context, attrs: IAttributeSet? = null, defStyleAttr: I
     @Px
     val monthPaddingSide: Int
 
-    val selectedElevation: Float
+    @DrawableRes
+    val selectedBackgroundLine: Int
 
     @DrawableRes
-    val selectedBackgroundResId: Int
+    val selectedBackgroundEdge: Int
 
-    @DrawableRes
-    val selectedSliderResId: Int
-
-    val isVisibleSelectedSlider: Boolean
 
     init {
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.CalendarView, defStyleAttr, 0)
@@ -50,10 +47,8 @@ class ViewConfig(context: Context, attrs: IAttributeSet? = null, defStyleAttr: I
                 R.styleable.CalendarView_monthPaddingSide,
                 context.convertToPixel(defaultMonthPaddingSideDp).toInt()
         )
-        selectedElevation = typedArray.getDimensionPixelSize(R.styleable.CalendarView_selectedElevation, 0).toFloat()
-        selectedBackgroundResId = typedArray.getResourceId(R.styleable.CalendarView_selectedBackground, R.drawable.background_oval)
-        selectedSliderResId = typedArray.getResourceId(R.styleable.CalendarView_selectedSlider, R.drawable.background_slider)
-        isVisibleSelectedSlider = typedArray.getBoolean(R.styleable.CalendarView_visibleSelectedSlider, false)
+        selectedBackgroundLine = typedArray.getResourceId(R.styleable.CalendarView_selectedBackgroundLine, R.drawable.background_line)
+        selectedBackgroundEdge = typedArray.getResourceId(R.styleable.CalendarView_selectedBackgroundEdge, R.drawable.background_edge)
 
         typedArray.recycle()
     }

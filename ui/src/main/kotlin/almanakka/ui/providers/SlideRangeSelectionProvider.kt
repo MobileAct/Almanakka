@@ -2,13 +2,16 @@ package almanakka.ui.providers
 
 import almanakka.core.IDay
 import almanakka.core.ImmutableDay
+import almanakka.core.animators.Animator
 import almanakka.core.behaviors.IBehaviorContainer
 import almanakka.core.behaviors.ISelectableBehavior
 import almanakka.ui.*
 import almanakka.ui.configurations.ViewConfig
 import almanakka.ui.events.EventArgs
 import almanakka.ui.events.RangeDaySelectedEventArgs
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.core.widget.AutoScrollHelper
@@ -18,6 +21,7 @@ import android.view.MotionEvent.ACTION_UP as actionUp
 
 
 class SlideRangeSelectionProvider(
+        private val calendarView: CalendarView,
         private val recyclerView: RecyclerView,
         private val viewConfig: ViewConfig,
         private val daySelected: (EventArgs) -> Unit) : ISelectionProvider {
@@ -47,8 +51,6 @@ class SlideRangeSelectionProvider(
     private var behaviorContainer: IBehaviorContainer? = null
     private val selectableBehavior = SelectableBehavior()
 
-    override var viewState: ViewState = ViewState()
-
     /**
      * [selectedMinDay] or [selectedMaxDay]
      */
@@ -70,8 +72,16 @@ class SlideRangeSelectionProvider(
 
         selectableBehavior.select(day)
 
-        recyclerView.adapter?.notifyDataSetChanged()
+        calendarView.invalidate()
         raiseSelectEvent()
+    }
+
+    override fun createBackgroundView(context: Context): BackgroundView {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun requestPostInvalidateView(): Boolean {
+        return false
     }
 
     override fun onClick(v: View?) {
@@ -150,12 +160,12 @@ class SlideRangeSelectionProvider(
 
         val selectedBaseEdgeDay = selectedBaseEdgeDay
         if (selectedBaseEdgeDay != null) {
-            selectableBehavior.clearSelect()
+            Log.d("a", "selectedBaseEdgeDay")
             selectableBehavior.selectBaseDay(selectedBaseEdgeDay)
             selectableBehavior.select(day)
         }
 
-        rv.adapter?.notifyDataSetChanged()
+        calendarView.invalidate()
         previousTouchedDayView = dayView
 
         if (previousSelectedMinDay != selectableBehavior.selectedMinDay || previousSelectedMaxDay != selectableBehavior.selectedMaxDay) {
@@ -168,15 +178,15 @@ class SlideRangeSelectionProvider(
     }
 
     private fun showPressBackgroundAnimation() {
-        viewState.isSelectedBackgroundPressed = true
-        viewState.selectedTranslationZ = viewConfig.selectedElevation
-        recyclerView.adapter?.notifyDataSetChanged()
+        //viewState.isSelectedBackgroundPressed = true
+        // ToDo
+        calendarView.invalidate()
     }
 
     private fun showUnPressBackgroundAnimation() {
-        viewState.isSelectedBackgroundPressed = false
-        viewState.selectedTranslationZ = 0F
-        recyclerView.adapter?.notifyDataSetChanged()
+        //viewState.isSelectedBackgroundPressed = false
+        // ToDo
+        calendarView.invalidate()
     }
 
     private fun IDay.isSelectedEdge(): Boolean {

@@ -35,16 +35,10 @@
     </style>
 
     <style name="Almanakka.Scroll.TapRange">
-        <item name="selectedBackground">@drawable/background_line</item>
-
         <item name="selectionProvider">tapRange</item>
     </style>
 
     <style name="Almanakka.Scroll.SlideRange">
-        <item name="selectedBackground">@drawable/background_line</item>
-        <item name="selectedElevation">4dp</item>
-        <item name="visibleSelectedSlider">true</item>
-
         <item name="selectionProvider">slideRange</item>
     </style>
 

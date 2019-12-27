@@ -1,30 +1,29 @@
-package almanakka.ui
+package almanakka.ui.providers
 
 import almanakka.core.IDay
 import almanakka.core.IWeek
 import almanakka.core.animators.Progress
 import almanakka.core.behaviors.IBehaviorContainer
+import almanakka.ui.BackgroundView
 import almanakka.ui.configurations.ViewConfig
 import almanakka.ui.internal.ViewMeasure
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.drawable.Drawable
-import android.view.View
-
 
 @SuppressLint("ViewConstructor")
-internal class SelectedBackgroundView(
+internal class TapRangeBackgroundView(
         context: Context,
-        private val selectionProvider: ISelectionProvider,
-        private val viewConfig: ViewConfig) : View(context) {
+        private val tapRangeSelectionProvider: TapRangeSelectionProvider,
+        private val viewConfig: ViewConfig) : BackgroundView(context) {
 
     private var behaviorContainer: IBehaviorContainer? = null
     private var week: IWeek? = null
     private val backgroundLine: Drawable = checkNotNull(context.getDrawable(viewConfig.selectedBackgroundLine))
     private val backgroundLeftEdge: Drawable = checkNotNull(context.getDrawable(viewConfig.selectedBackgroundEdge))
     private val backgroundRightEdge: Drawable = checkNotNull(context.getDrawable(viewConfig.selectedBackgroundEdge))
-    private val selectedBackgroundDrawable = SelectedBackgroundDrawable(backgroundLine, backgroundLeftEdge, backgroundRightEdge)
+    private val selectedBackgroundDrawable = TapRangeBackgroundDrawable(backgroundLine, backgroundLeftEdge, backgroundRightEdge)
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
@@ -52,7 +51,7 @@ internal class SelectedBackgroundView(
                     if (it == null)
                         Pair<IDay?, Progress?>(null, null)
                     else
-                        Pair<IDay?, Progress?>(it, selectionProvider.viewState.animator?.state(it))
+                        Pair<IDay?, Progress?>(it, tapRangeSelectionProvider.animator?.state(it))
                 }
                 ?.toList() ?: List(7) { Pair(null, null) }
 
@@ -63,7 +62,7 @@ internal class SelectedBackgroundView(
 
         for ((i, state) in states.withIndex()) {
             val day = state.first
-            if (day == null || selectionProvider.viewState.animator?.state(day) == Progress.None) {
+            if (day == null || tapRangeSelectionProvider.animator?.state(day) == Progress.None) {
                 offsetLeft += dayWidths[i] // array may be equals count
             } else {
                 break
@@ -102,24 +101,18 @@ internal class SelectedBackgroundView(
         selectedBackgroundDrawable.dayTextOvalMargin = dayTextOvalMargin
         selectedBackgroundDrawable.setBounds(offsetLeft, 0, offsetLeft + backgroundWidth, height)
         selectedBackgroundDrawable.type = when {
-            (leftEdge && rightEdge) || singleDay -> SelectedBackgroundDrawable.Type.SideEdge
-            leftEdge -> SelectedBackgroundDrawable.Type.LeftEdge
-            rightEdge -> SelectedBackgroundDrawable.Type.RightEdge
-            else -> SelectedBackgroundDrawable.Type.Line
+            (leftEdge && rightEdge) || singleDay -> TapRangeBackgroundDrawable.Type.SideEdge
+            leftEdge -> TapRangeBackgroundDrawable.Type.LeftEdge
+            rightEdge -> TapRangeBackgroundDrawable.Type.RightEdge
+            else -> TapRangeBackgroundDrawable.Type.Line
         }
         selectedBackgroundDrawable.measure()
     }
 
-    fun updateState(behaviorContainer: IBehaviorContainer, week: IWeek?) {
+    override fun updateState(behaviorContainer: IBehaviorContainer, week: IWeek?) {
         this.behaviorContainer = behaviorContainer
         this.week = week
 
-        setPressed()
-
         invalidate()
-    }
-
-    private fun setPressed() {
-        isPressed = selectionProvider.viewState.isSelectedBackgroundPressed
     }
 }

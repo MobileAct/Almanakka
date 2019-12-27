@@ -7,12 +7,13 @@ import almanakka.core.behaviors.ISelectableBehavior
 import almanakka.ui.*
 import almanakka.ui.events.DaySelectedEventArgs
 import almanakka.ui.events.EventArgs
+import android.content.Context
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class SelectionProvider(
+class NormalSelectionProvider(
         private val calendarView: CalendarView,
         private val recyclerView: RecyclerView,
         private val daySelected: (EventArgs) -> Unit) : ISelectionProvider {
@@ -30,7 +31,13 @@ class SelectionProvider(
     private var behaviorContainer: IBehaviorContainer? = null
     private val selectableBehavior = SelectableBehavior()
 
-    override var viewState: ViewState = ViewState()
+    override fun createBackgroundView(context: Context): BackgroundView {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun requestPostInvalidateView(): Boolean {
+        return false
+    }
 
     override fun registerBehavior(behaviorContainer: IBehaviorContainer) {
         this.behaviorContainer = behaviorContainer
@@ -43,11 +50,6 @@ class SelectionProvider(
 
     override fun select(day: IDay) {
         selectableBehavior.select(day)
-
-        val animator = viewState.animator
-        animator?.selectWithNoAnimation(day)
-        // ToDo: from config
-        viewState.animator = animator ?: Animator(100, day)
 
         calendarView.invalidate()
         daySelected(DaySelectedEventArgs(day.toImmutable()))

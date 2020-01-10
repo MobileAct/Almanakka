@@ -136,7 +136,7 @@ class CalendarView @JvmOverloads constructor(context: Context, attrs: AttributeS
             selectionProvider = when (this@CalendarView.selectionProviderType) {
                 tapRangeProvider -> TapRangeSelectionProvider(this@CalendarView, this, viewConfig, ::raiseDaySelected)
                 slideRangeProvider -> SlideRangeSelectionProvider(this@CalendarView, this, viewConfig, ::raiseDaySelected)
-                else -> NormalSelectionProvider(this@CalendarView, this, ::raiseDaySelected)
+                else -> NormalSelectionProvider(this@CalendarView, this, viewConfig, ::raiseDaySelected)
             }
             selectionProvider.registerBehavior(calendarCollection.behaviorContainer)
 

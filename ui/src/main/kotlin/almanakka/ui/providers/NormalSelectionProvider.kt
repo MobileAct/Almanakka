@@ -1,10 +1,10 @@
 package almanakka.ui.providers
 
 import almanakka.core.IDay
-import almanakka.core.animators.Animator
 import almanakka.core.behaviors.IBehaviorContainer
 import almanakka.core.behaviors.ISelectableBehavior
 import almanakka.ui.*
+import almanakka.ui.configurations.ViewConfig
 import almanakka.ui.events.DaySelectedEventArgs
 import almanakka.ui.events.EventArgs
 import android.content.Context
@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 class NormalSelectionProvider(
         private val calendarView: CalendarView,
         private val recyclerView: RecyclerView,
+        private val viewConfig: ViewConfig,
         private val daySelected: (EventArgs) -> Unit) : ISelectionProvider {
 
     companion object {
@@ -32,7 +33,7 @@ class NormalSelectionProvider(
     private val selectableBehavior = SelectableBehavior()
 
     override fun createBackgroundView(context: Context): BackgroundView {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return NormalBackgroundView(context, viewConfig)
     }
 
     override fun requestPostInvalidateView(): Boolean {
